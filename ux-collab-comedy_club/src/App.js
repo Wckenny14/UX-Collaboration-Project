@@ -1,21 +1,14 @@
 import './App.css';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import NavLinks from './NavBar/NavLinks';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from './components/Header';
 import Home from './pages/Home';
-// import Newsletter from './pages/NewsLetter';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-    <h4>Popup - GeeksforGeeks</h4>
-      <Popup trigger=
-          {<button> Click to open popup </button>}
-          position="right center">
-          <div>GeeksforGeeks</div>
-          <button>Click here</button>
-      </Popup>
+      <Header />
+      <Home />
+      <Footer />
     </div>
   );
 }

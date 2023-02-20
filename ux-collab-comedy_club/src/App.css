@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', 'sans-serif';
+}
+.popupstyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.close-btn {
+  color: black;
+  background-color: white;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  left: 91%;
+  top: 26%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.popup {
+  position: fixed;
+  top: 25%;
+  left: 7.5px;
+  width: 95%;
+  height: auto;
+  background-color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* main {
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+} */
+
+body {
+  background-color: black;
+}
+
+.mainBodyImage {
+  background-image: src("Screenshot_20230220_152633_Samsung Internet.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-color: blue;*/
+  height: auto;
+}
+.logo {
+  width: 60px;
+  height: auto;
+  margin: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.burgerMenu {
+  margin-left: 10px;
+  padding-top: 10px;
+}
+.trollyIcon {
+  margin-right: 10px;
+  padding-top: 10px;
+}
+
+.footer {
+  position: fixed;
+  color: #fff;
+  bottom: 5%;
+  padding: 5px;
+  text-align: center;
+}
+.extraBtn {
+  margin: 5px auto;
+  display: block;
   color: white;
+  background-color: rgb(139, 18, 18);
+  width: 100px;
+  height: 20px;
+  border: none;
+}
+.mainBodyText {
+  color: white;
+  font-size: 10px;
+}
+.mainBodyTitle {
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -1,6 +1,6 @@
 function Newsletter() {
     return (
-      <div className="App">
+      <div className="Newsletter">
         <h2>Newsletter coming soon</h2>
       </div>
     );
