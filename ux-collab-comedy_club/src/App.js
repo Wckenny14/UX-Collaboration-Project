@@ -5,17 +5,49 @@ import NavLinks from "./NavBar/NavLinks";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Subform from "./components/Subform";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Modal } from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import { collection, getDocs, addDoc } from "@firebase/firestore";
+import { db } from "./firebase";
+import { NavLink } from "react-router-dom";
+import AdminPage from "./pages/AdminPage";
+// import "firebase/firestore";
 // import Newsletter from './pages/NewsLetter';
 
 function App() {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(null);
+  const [newFisrtName, setNewFirstName] = useState("");
+  const [newLastName, setNewLastName] = useState("");
+  const [newEmail, setNewEmail] = useState("");
 
-  const [shoppingNewsletter, setShoppingNewsletter] = useState(false);
-  const [weeklyNewsletter, setWeeklyNewsletter] = useState(false);
+  const [shoppingNewsletter, setShoppingNewsletter] = useState([]);
+  const shoppingNewsletterRef = collection(db, "shoppingNewsletter");
+  const [weeklyNewsletter, setWeeklyNewsletter] = useState([]);
+  const weeklyNewsletterRef = collection(db, "weeklyNewsletter");
+
+  const [showAdminPage, setShowAdminPage] = useState(false);
+
+  useEffect(() => {
+    const getShoppingNewsletter = async () => {
+      const data = await getDocs(shoppingNewsletterRef);
+      setShoppingNewsletter(
+        data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    };
+    getShoppingNewsletter();
+  }, []);
+
+  useEffect(() => {
+    const getWeeklyNewsletter = async () => {
+      const data = await getDocs(weeklyNewsletterRef);
+      setWeeklyNewsletter(
+        data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    };
+    getWeeklyNewsletter();
+  }, []);
 
   const [values, setValues] = useState({
     firstname: "",
@@ -51,19 +83,48 @@ function App() {
       placeholder: "Email address",
       errorMessage: "It should be a valid email address!",
       label: "Email address",
-      pattern: "^[^s@]+@[^s@]+.[^s@]+$",
+      pattern: "^[^@]+@[^@]+.[^@]+$",
       required: true,
     },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (!shoppingNewsletter && !weeklyNewsletter) {
-    //   alert("Please select at least one newsletter to subscribe.");
-    //   return;
-    // }
+
     if (!shoppingNewsletter && !weeklyNewsletter) {
       setError("Please select at least one newsletter");
+      return;
+    }
+
+    try {
+      if (shoppingNewsletter) {
+        await addDoc(shoppingNewsletterRef, {
+          firstname: values.firstname,
+          lastname: values.lastname,
+          email: values.email,
+        });
+      }
+
+      if (weeklyNewsletter) {
+        await addDoc(weeklyNewsletterRef, {
+          firstname: values.firstname,
+          lastname: values.lastname,
+          email: values.email,
+        });
+      }
+
+      // clear form values
+      setValues({
+        firstname: "",
+        lastname: "",
+        email: "",
+      });
+      setShoppingNewsletter([]);
+      setWeeklyNewsletter([]);
+
+      setError(null);
+    } catch (error) {
+      console.log("Error adding document: ", error);
     }
   };
 
@@ -73,6 +134,10 @@ function App() {
 
   return (
     <div className="App">
+      <button onClick={() => setShowAdminPage(!showAdminPage)}>
+        Admin Page
+      </button>
+      {showAdminPage && <AdminPage />}
       <h4>Popup - GeeksforGeeks</h4>
       <Popup trigger={<button> Click to open popup </button>} modal nested>
         {(close) => (
@@ -106,6 +171,7 @@ function App() {
                     checked={shoppingNewsletter}
                     onChange={() => setShoppingNewsletter(!shoppingNewsletter)}
                   />
+
                   <label htmlFor="shopping-newsletter">
                     Shopping Newsletter
                   </label>
