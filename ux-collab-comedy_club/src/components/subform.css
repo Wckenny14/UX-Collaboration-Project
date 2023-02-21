@@ -1,0 +1,67 @@
+.formBackground {
+    border-radius: 5px;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  input {
+    padding: 10px;
+    margin: 0 auto;
+    /* border-radius: 5px; */
+    border: 1px solid #8C8686;
+    width: 100%;
+    background-color: #D9D9D9;
+  }
+  
+  label {
+    font-size: 12px;
+    color: black;
+    margin-top: 5px;
+  }
+  
+  span {
+    font-size: 12px;
+    color: red;
+    display: none;
+  }
+  
+  input:invalid[focused="true"] {
+    border: 1px solid red;
+  }
+  
+  input:invalid[focused="true"] ~ span {
+    display: block;
+  }
+  
+  .modal {
+    width: 35em;
+    text-align: center;
+  }
+  .privacy {
+    width: 85%;
+    margin: 5px auto;
+    padding-bottom: 5PX;
+  }
+
+  .privacyTitle {
+
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .privacyText {
+    font-size: 12px;
+    padding-bottom: 15px;
+  }
+  .subscribeBtn.edit {
+    width: 85%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }

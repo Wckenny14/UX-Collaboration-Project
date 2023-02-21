@@ -19,10 +19,10 @@ const Header = () => {
           {hamburger}
         </div>
         <div className="logo">
-            <a href="/home"><img className='logo' src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0595%2F0580%2F3426%2Ffiles%2FThe-Running-Joke_1_1200x1200.png%3Fv%3D1631522041" /></a>
+            <a href="/adminpage"><img className='logo' src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0595%2F0580%2F3426%2Ffiles%2FThe-Running-Joke_1_1200x1200.png%3Fv%3D1631522041" /></a>
         </div>
         <div className='trollyIcon'>
-        {trolley}
+          {trolley}
         </div>
       </div>
   );
