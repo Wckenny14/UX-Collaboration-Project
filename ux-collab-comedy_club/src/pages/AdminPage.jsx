@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { collection, getDocs, addDoc } from "@firebase/firestore";
 import { shoppingNewsletterRef } from "../firebase"
 import { weeklyNewsletterRef } from "../firebase"
+import { Link } from "react-router-dom";
 
 function AdminPage () {
   const [shoppingNewsletter, setShoppingNewsletter] = useState([]);
@@ -33,8 +34,9 @@ function AdminPage () {
   };
 
   return (
-    <div>
+    <div className="App">
     <hr />
+        <Link to='/'>Homepage</Link>
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <button onClick={() => handleButtonClick("shopping")} className="adminbutton" >Shopping Newsletter</button>
         <button onClick={() => handleButtonClick("weekly")} className="adminbutton" >Weekly Newsletter</button>

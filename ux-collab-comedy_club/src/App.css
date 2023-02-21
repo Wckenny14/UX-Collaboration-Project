@@ -15,7 +15,7 @@ body {
   background-image: url("https://i.imgur.com/j17JQzt.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 60vh;
+  height: 70vh;
 }
 
 /* ----- HEADER ----- */
@@ -33,6 +33,7 @@ body {
 .burgerMenu {
   /* margin-left: 10px; */
   padding-top: 10px;
+  margin-left: 10px;
 
 }
 .trollyIcon {
@@ -56,12 +57,12 @@ body {
   font-family: 'Montserrat', sans-serif;
   position: fixed;
   left: 87%;
-  top: 23%;
+  top: 30%;
 }
 
 .popup {
   position: fixed;
-  top: 20%;
+  top: 27%;
   left: 5%;
   width: 90%;
   height: auto;
@@ -93,7 +94,7 @@ body {
 }
 .subTitle {
   font-size: 20px;
-  width: 80%;
+  width: 60%;
   /* display: flex; */
   text-align: center;
   color: black;
@@ -101,8 +102,8 @@ body {
 }
 .subP {
   margin-top: 20px;
-  font-size: 14px;
-  width: 90%;
+  font-size: 15px;
+  width: 85%;
   text-align: center;
   color: black;
 }
@@ -128,16 +129,16 @@ body {
   opacity: 1;
   color: #fff;
   font-family: Pacifico, cursive;
-  font-size: 38px;
+  font-size: 46px;
 }
 
 .ticketBtn {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: none;
   background-color: crimson;
   border: none;
@@ -231,4 +232,39 @@ body {
 }
 .Background {
   background-color: black;
+}
+
+.tickbox1, .tickbox2 {
+  display: flex;
+  width: 80%;
+  margin: 15px auto;
+  margin-top: 0;
+}
+#shopping-newsletter, #weekly-newsletter {
+  width: 20px;
+  height: 20px;
+  background-color: #D9D9D9;
+  border: none;
+  margin-right: 10px;
+}
+.shopNews {
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.shopNewsDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  align-content: baseline;
+}
+.shopNewsText {
+  font-size: 14px;
+  padding-right: 20px;
+}
+.confirmP {
+  padding-bottom: 40px;
+  width: 49%;
+  text-align: center;
 }

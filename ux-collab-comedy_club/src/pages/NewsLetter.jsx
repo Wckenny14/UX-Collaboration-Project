@@ -138,52 +138,62 @@ function Newsletter() {
               onChange={onChange}
             />
           ))}
-          <p>I would like to receive: </p>
+          <p className='newsletterChoice'>I would like to receive: </p>
           <div className="tickbox1">
-            <input
-              type="checkbox"
-              id="shopping-newsletter"
-              name="shopping-newsletter"
-              checked={shoppingNewsletter}
-              onChange={() => setShoppingNewsletter(!shoppingNewsletter)}
-            />
-            <label htmlFor="shopping-newsletter">
-              Shopping Newsletter
-            </label>
             <div>
-              Get discounted tickets, lineups, and exclusive comedy clips
-              from The Running Jokes.
+              <input
+                type="checkbox"
+                id="shopping-newsletter"
+                name="shopping-newsletter"
+                checked={shoppingNewsletter}
+                onChange={() => setShoppingNewsletter(!shoppingNewsletter)}
+              />
+            </div>
+            <div className="shopNewsDetails">
+              <label htmlFor="shopping-newsletter"  className='shopNews'>
+                Shopping Newsletter
+              </label>
+              <div className="shopNewsText">
+                Get discounted tickets, lineups, and exclusive comedy clips
+                from The Running Jokes.
+              </div>
             </div>
           </div>
 
           <div className="tickbox2">
-            <input
-              type="checkbox"
-              id="weekly-newsletter"
-              name="weekly-newsletter"
-              checked={weeklyNewsletter}
-              onChange={() => setWeeklyNewsletter(!weeklyNewsletter)}
-            />
-            <label htmlFor="weekly-newsletter">Weekly Newsletter</label>
             <div>
-              Our signature newsletter, this comprehensive rundown of
-              what’s going on in the world of Australian comedy will
-              arrive in your inbox on the first day of the working week.
+              <input
+                type="checkbox"
+                id="weekly-newsletter"
+                name="weekly-newsletter"
+                checked={weeklyNewsletter}
+                onChange={() => setWeeklyNewsletter(!weeklyNewsletter)}
+              />
+            </div>
+            <div className="shopNewsDetails">
+                <label htmlFor="weekly-newsletter" className='shopNews'>
+                  Weekly Newsletter
+                </label>
+                <div className="shopNewsText">
+                  Our signature newsletter, this comprehensive rundown of
+                  what’s going on in the world of Australian comedy will
+                  arrive in your inbox on the first day of the working week.
+                </div>
             </div>
           </div>
           <div>
             {error && <div className="text-red-500">{error}</div>}
-            <Link to="/confirmation">
+            <Link className='saveBtn2' to="/confirmation">
               <button className="subscribeBtn edit">
-                Save subscribtion
+                <p className='saveBtn'>Save subscribtion</p>
               </button>
             </Link>
             <div className='privacy'>
               <div className='privacyTitle'>Your privacy </div>
-              <p className="privacyText">Your email address is totally safe with us We will never
-              pass it on to a third party or use it for anything but
+              <p className="privacyText">Your email address is totally safe with us. We will never
+              pass it on to a third party or use it for anything other than
               sending you the emails you’ve requested. All the emails we
-              send contain to permanently unsubscribe.
+              send contain an option to permanently unsubscribe.
               </p>            
             </div>
           </div>
