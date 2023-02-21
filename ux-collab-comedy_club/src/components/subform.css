@@ -34,3 +34,17 @@ input:invalid[focused="true"] ~ span {
   width: 35em;
   text-align: center;
 }
+
+p {
+  margin-bottom: 0.5em;
+  word-wrap: break-word;
+}
+
+.adminbutton {
+  margin: 1em;
+  font-weight: bold;
+}
+
+.userinfo {
+  text-align: left;
+}
