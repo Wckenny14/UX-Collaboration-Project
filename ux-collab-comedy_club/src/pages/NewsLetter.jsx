@@ -70,7 +70,7 @@ function Newsletter() {
       name: "email",
       type: "email",
       placeholder: "Email address",
-      errorMessage: "It should be a valid email address!",
+      errorMessage: "Valid Email address must contain only one @ and at least one full stop(.)",
       label: "Email address",
       pattern: "^[^@]+@[^@]+.[^@]+$",
       required: true,
