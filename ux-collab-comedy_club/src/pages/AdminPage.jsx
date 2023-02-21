@@ -6,7 +6,7 @@ import { weeklyNewsletterRef } from "../firebase"
 function AdminPage () {
   const [shoppingNewsletter, setShoppingNewsletter] = useState([]);
   const [weeklyNewsletter, setWeeklyNewsletter] = useState([]);
-
+  const [activeButton, setActiveButton] = useState("shopping");
 
   useEffect(() => {
     const getShoppingNewsletter = async () => {
@@ -28,36 +28,59 @@ function AdminPage () {
     getWeeklyNewsletter();
   }, []);
 
-return (
-    <div className='App'>
+  const handleButtonClick = (button) => {
+    setActiveButton(button);
+  };
+
+  return (
     <div>
-        Shopping NewsLetter Subscriber:
-        {shoppingNewsletter.length > 0 &&
-          shoppingNewsletter.map((user) => {
-            return (
-              <div key={user.id}>
-                <h4>
-                  Name: {user.firstname} {user.lastname} Email: {user.email}
-                </h4>
-              </div>
-            );
-          })}
+    <hr />
+      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+        <button onClick={() => handleButtonClick("shopping")} className="adminbutton" >Shopping Newsletter</button>
+        <button onClick={() => handleButtonClick("weekly")} className="adminbutton" >Weekly Newsletter</button>
       </div>
-      <div>
-        Weekly Newsletter Subscriber:
-        {weeklyNewsletter.length > 0 &&
-          weeklyNewsletter.map((user) => {
-            return (
-              <div key={user.id}>
-                <h4>
-                  Name: {user.firstname} {user.lastname} Email: {user.email}
-                </h4>
-              </div>
-            );
-          })}
-      </div>
-      </div>
-)
+      {activeButton === "shopping" && (
+        <div>
+          Shopping Newsletter Subscribers: 
+          <div className="adminbutton">{shoppingNewsletter.length}</div>
+          <hr />
+          {shoppingNewsletter.length > 0 &&
+            shoppingNewsletter.map((user) => {
+              return (
+                <div key={user.id}>
+                  <p>
+                    <div className="userinfo">
+                    <div>Name: {user.firstname} {user.lastname}</div> 
+                    <div>Email: {user.email}</div>
+                    </div>
+                  </p>
+                </div>
+              );
+            })}
+        </div>
+      )}
+      {activeButton === "weekly" && (
+        <div>
+          Weekly Newsletter Subscribers: 
+          <div className="adminbutton">{weeklyNewsletter.length}</div>
+          <hr />
+          {weeklyNewsletter.length > 0 &&
+            weeklyNewsletter.map((user) => {
+              return (
+                <div key={user.id}>
+                 <p>
+                 <div className="userinfo">
+                    <div>Name: {user.firstname} {user.lastname}</div> 
+                    <div>Email: {user.email}</div>
+                </div>
+                </p>
+                </div>
+              );
+            })}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default AdminPage

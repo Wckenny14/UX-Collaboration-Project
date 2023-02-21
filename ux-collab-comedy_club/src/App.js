@@ -1,7 +1,7 @@
 import './App.css';
-import Header from './components/Header';
+// import Header from './components/Header';
 import Home from './pages/Home';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Newsletter from './pages/Newsletter';
 import AdminPage from './pages/AdminPage';
@@ -9,7 +9,7 @@ import Confirmation from './pages/Confirmation';
 
 function App() {
   return (
-    <div className="App">
+    <div className="Background">
       <BrowserRouter>
           {/* <Header /> */}
           <Routes>
