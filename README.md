@@ -6,5 +6,4 @@ The UX student had the task of coming up with the wireframe for the app and my t
 
 ## Tech Stack
 - React
-- CSS & Bootstrap
-- 
+- CSS & TailwindCSS
